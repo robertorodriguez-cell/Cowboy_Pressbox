@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Cowboy Pressbox &middot; Journalism Reviews</title>
+<meta name="description" content="Review games and study tools for Journalism 1 and Yearbook at Madison County High School.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,600;1,400&family=Rye&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oxblood:#36000f; --maroon:#850834; --crimson:#c50045;
+  --parchment:#faf2e7; --sand:#edd2bb; --saddle:#b38b79;
+  --charcoal:#383839; --ink:#1c1215; --muted:#5e4c4f; --white:#fff;
+  --display:"Rye","Rockwell Extra Bold",Rockwell,Georgia,serif;
+  --cond:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--parchment);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+.hero{background:var(--oxblood);color:var(--white);padding:calc(28px + env(safe-area-inset-top,0px)) 0 0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.brandline{display:flex;align-items:center;gap:10px;font-family:var(--cond);font-weight:600;font-size:18px;color:var(--sand)}
+.brandline .mark{width:34px;height:34px;flex:0 0 auto;display:block}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,7.4vw,80px);line-height:.95;margin:18px 0 14px}
+.hero p{max-width:34em;color:#e9dcdc;margin:0 0 32px;font-size:19px}
+.hero .press{width:clamp(140px,22vw,230px);display:block;margin-bottom:-4px}
+.rope{height:14px;background:repeating-linear-gradient(135deg,var(--sand) 0 8px,var(--saddle) 8px 16px)}
+
+h2.sect{font-family:var(--display);font-weight:400;color:var(--maroon);font-size:clamp(26px,4vw,36px);margin:34px 0 6px}
+p.lede{color:var(--muted);margin:0 0 16px}
+
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:4px 0 10px}
+.card{position:relative;display:block;text-decoration:none;border:3px solid var(--ink);background:var(--white);
+  border-radius:6px;padding:20px 20px 18px 92px;min-height:136px;color:var(--ink);
+  transition:transform .12s, box-shadow .12s}
+.card:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--maroon)}
+.card .num{position:absolute;left:18px;top:20px;width:56px;height:56px;display:grid;place-items:center;
+  background:var(--maroon);color:var(--white);font-family:var(--display);font-size:22px;
+  clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.card h3{font-family:var(--cond);font-weight:700;font-size:27px;line-height:1.05;margin:0 0 4px;color:var(--maroon)}
+.card p{margin:0;color:var(--muted);font-size:16.5px}
+.card .tag{display:inline-block;margin-top:10px;font-family:var(--cond);font-weight:600;font-size:15px;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--crimson)}
+
+.card.soon{background:var(--sand);border-style:dashed;cursor:default}
+.card.soon:hover{transform:none;box-shadow:none}
+.card.soon .num{background:var(--saddle)}
+.card.soon h3{color:var(--muted)}
+.card.soon .tag{color:var(--muted)}
+
+footer{color:var(--muted);font-size:15px;padding:26px 0 36px;border-top:2px solid var(--sand);margin-top:28px}
+@media (max-width:760px){
+  .cards{grid-template-columns:1fr}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero .press{width:140px;justify-self:end;margin-top:-20px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brandline">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#edd2bb" d="M12 1.6l2.95 6.4 7 .82-5.2 4.78 1.42 6.9L12 17.2l-6.17 3.3 1.42-6.9L2.05 8.82l7-.82z"/></svg>
+        Madison County Cowboys &middot; Journalism
+      </div>
+      <h1>The Cowboy Pressbox</h1>
+      <p>Review games and study tools for Journalism 1 and Yearbook. Pick your chapter and ride.</p>
+    </div>
+    <svg class="press" viewBox="0 0 220 150" aria-hidden="true">
+      <g fill="none" stroke="#edd2bb" stroke-width="4" stroke-linejoin="round">
+        <rect x="18" y="26" width="150" height="104" rx="4"/>
+        <path d="M168 48h30v72a10 10 0 0 1-10 10h-20"/>
+        <rect x="34" y="42" width="60" height="34"/>
+        <path d="M106 44h46M106 56h46M106 68h46M34 92h118M34 104h118M34 116h78"/>
+      </g>
+    </svg>
+  </div>
+</header>
+<div class="rope"></div>
+
+<main class="wrap">
+
+  <h2 class="sect">Journalism 1</h2>
+  <p class="lede">Each review is a set of five events. Earn stars, then claim your Top Hand certificate.</p>
+
+  <div class="cards">
+
+    <!-- =========================================================
+         TO ADD A NEW CHAPTER
+         1. Upload the new file to this repo, e.g. chapter11.html
+         2. Copy the <a class="card"> block below and paste a copy
+            just above this comment.
+         3. In the copy, change four things: the href, the number
+            inside <span class="num">, the <h3> title, and the <p>.
+         4. Delete the matching "Coming soon" card.
+         5. Commit. The new card is live within a minute.
+         ========================================================= -->
+
+    <a class="card" href="chapter10.html">
+      <span class="num">10</span>
+      <h3>The Front Page Roundup</h3>
+      <p>Writing news and features: the four characteristics, attribution, the inverted pyramid, leads, and feature styles.</p>
+      <span class="tag">5 events &middot; 12 stars</span>
+    </a>
+
+    <div class="card soon">
+      <span class="num">11</span>
+      <h3>Coming soon</h3>
+      <p>The next chapter review will appear here.</p>
+      <span class="tag">In the chute</span>
+    </div>
+
+  </div>
+
+  <h2 class="sect">Yearbook</h2>
+  <p class="lede">Deadline, spread, and ad-sales tools will be posted here as they are built.</p>
+  <div class="cards">
+    <div class="card soon">
+      <span class="num">&#9733;</span>
+      <h3>Coming soon</h3>
+      <p>Yearbook review tools will appear here.</p>
+      <span class="tag">In the chute</span>
+    </div>
+  </div>
+
+  <footer>
+    Journalism 1 &middot; Madison County High School &middot; Go Cowboys!<br>
+    Review material follows Stovall, <em>Journalism: Who, What, When, Where, Why, and How</em>.
+    Progress on each review is saved only in your own browser.
+  </footer>
+
+</main>
+</body>
+</html>
