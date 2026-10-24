@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Style Corral &middot; Chapter 11 Review</title>
+<meta name="description" content="Journalism 1 Chapter 11 review games: AP style rules, trademarks, journalistic conventions, and language sensitivity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:ital,wght@0,400;0,600;1,400&family=Rye&display=swap" rel="stylesheet">
+<style>
+:root{
+  --oxblood:#36000f; --maroon:#850834; --crimson:#c50045;
+  --parchment:#faf2e7; --sand:#edd2bb; --saddle:#b38b79;
+  --charcoal:#383839; --ink:#1c1215; --muted:#5e4c4f; --white:#fff;
+  --good:#2f6b3a; --goodbg:#e3f0e1; --bad:#9b1c1c; --badbg:#f8e1e1;
+  --display:"Rye","Rockwell Extra Bold",Rockwell,Georgia,serif;
+  --cond:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --body:"Barlow","Segoe UI",Arial,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--parchment);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.5;
+  padding-bottom:env(safe-area-inset-bottom,0px)}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--crimson);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+
+/* Hero */
+.hero{background:var(--oxblood);color:var(--white);padding:calc(28px + env(safe-area-inset-top,0px)) 0 0;overflow:hidden;position:relative}
+.hero .wrap{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.brandline{display:flex;align-items:center;gap:10px;font-family:var(--cond);font-weight:600;font-size:18px;color:var(--sand)}
+.brandline .mark{width:34px;height:34px;flex:0 0 auto;display:block}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,7.4vw,80px);line-height:.95;margin:18px 0 14px;letter-spacing:.01em}
+.hero p{max-width:34em;color:#e9dcdc;margin:0 0 32px;font-size:19px}
+.hero .press{width:clamp(140px,22vw,230px);display:block;margin-bottom:-4px}
+.rope{height:14px;background:repeating-linear-gradient(135deg,var(--sand) 0 8px,var(--saddle) 8px 16px)}
+
+/* Buckle board */
+.board{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding:18px 0 4px;color:var(--muted);font-family:var(--cond);font-size:19px;font-weight:600}
+.board strong{color:var(--maroon);font-size:22px}
+.rank{font-family:var(--display);color:var(--maroon);font-size:21px}
+.reset{margin-left:auto;background:none;border:0;color:var(--muted);text-decoration:underline;font-family:var(--cond);font-size:17px}
+
+/* Event list */
+.events{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:18px 0 40px}
+.event{position:relative;text-align:left;border:3px solid var(--ink);background:var(--white);border-radius:6px;padding:20px 20px 18px 92px;min-height:136px;color:var(--ink);transition:transform .12s, box-shadow .12s}
+.event:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--maroon)}
+.event .num{position:absolute;left:18px;top:20px;width:56px;height:56px;display:grid;place-items:center;background:var(--maroon);color:var(--white);font-family:var(--display);font-size:24px;clip-path:polygon(50% 0,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.event h2{font-family:var(--cond);font-weight:700;font-size:28px;line-height:1.05;margin:0 0 4px;color:var(--maroon)}
+.event p{margin:0;color:var(--muted);font-size:16.5px}
+.event .stars{position:absolute;right:16px;top:14px}
+.event.wide{grid-column:1/-1;background:var(--sand)}
+.stars{display:inline-flex;gap:2px}
+.stars svg{width:22px;height:22px}
+.stars .on{fill:var(--crimson)} .stars .off{fill:none;stroke:var(--saddle);stroke-width:1.6}
+
+/* Game panel */
+.panel{display:none;padding:22px 0 60px}
+.panel.active{display:block}
+.home.hidden{display:none}
+.topbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.back{background:var(--charcoal);color:var(--white);border:0;border-radius:4px;padding:8px 14px;font-family:var(--cond);font-weight:600;font-size:17px}
+.panel h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,5vw,46px);color:var(--maroon);margin:8px 0 4px;line-height:1}
+.how{color:var(--muted);margin:0 0 18px;max-width:42em}
+.progress{font-family:var(--cond);font-weight:600;font-size:19px;color:var(--muted);margin-left:auto}
+.progress b{color:var(--maroon)}
+.card{background:var(--white);border:3px solid var(--ink);border-radius:6px;padding:22px}
+.scenario{font-size:21px;line-height:1.45;margin:0 0 18px}
+.feedback{min-height:1.5em;margin-top:16px;padding:12px 14px;border-radius:4px;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:var(--goodbg);color:var(--good)}
+.feedback.no{background:var(--badbg);color:var(--bad)}
+.feedback b{font-family:var(--cond);font-size:20px;margin-right:6px}
+.actions{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.btn{border:0;border-radius:4px;padding:12px 20px;font-family:var(--cond);font-weight:700;font-size:20px;background:var(--maroon);color:var(--white)}
+.btn.alt{background:var(--white);color:var(--maroon);box-shadow:inset 0 0 0 2px var(--maroon)}
+.btn[disabled]{opacity:.45;cursor:default}
+
+/* Choice buttons */
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.choice{text-align:left;background:var(--parchment);border:2px solid var(--saddle);border-radius:4px;padding:12px 14px;font-size:18px;color:var(--ink)}
+.choice:hover:not([disabled]){border-color:var(--maroon)}
+.choice.right{background:var(--goodbg);border-color:var(--good)}
+.choice.wrong{background:var(--badbg);border-color:var(--bad)}
+.choice[disabled]{cursor:default}
+.sched .choice{text-align:center;font-family:var(--cond);font-weight:700;font-size:22px;padding:14px 8px}
+.sched .choice small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:var(--muted)}
+.sched .choices{grid-template-columns:repeat(5,1fr)}
+
+/* Brand the Ws */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.chip{background:var(--sand);border:2px solid var(--saddle);border-radius:999px;padding:8px 16px;font-size:17px;color:var(--ink)}
+.chip.sel{background:var(--maroon);color:var(--white);border-color:var(--maroon)}
+.chip.used{visibility:hidden}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.slot{min-height:110px;border:2px dashed var(--saddle);border-radius:6px;background:var(--parchment);padding:10px;text-align:left;color:var(--ink);display:flex;flex-direction:column;gap:6px}
+.slot .tag{font-family:var(--display);font-size:26px;color:var(--maroon);line-height:1}
+.slot .val{font-size:16px}
+.slot .fix{display:block;font-size:14px;color:var(--muted);margin-top:4px;font-style:italic}
+.slot.filled{border-style:solid;background:var(--white)}
+.slot.right{border-color:var(--good);background:var(--goodbg)}
+.slot.wrong{border-color:var(--bad);background:var(--badbg)}
+
+/* Corral */
+.pens{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}
+.pen{min-height:96px;border:4px solid var(--saddle);border-radius:4px;background:
+  repeating-linear-gradient(0deg,transparent 0 30px,rgba(179,139,121,.25) 30px 34px),var(--parchment);
+  padding:10px;text-align:left;color:var(--ink);font-family:var(--cond);font-size:19px;font-weight:700}
+.pen span{display:block;font-family:var(--body);font-weight:400;font-size:14.5px;color:var(--muted)}
+.pen:hover:not([disabled]){border-color:var(--maroon)}
+.pen.right{border-color:var(--good);background:var(--goodbg)}
+.pen.wrong{border-color:var(--bad);background:var(--badbg)}
+.pen[disabled]{cursor:default}
+
+/* Flashcards */
+.flip{perspective:1200px;border:0;background:none;padding:0;width:100%;display:block}
+.flip .inner{position:relative;min-height:260px;transition:transform .45s;transform-style:preserve-3d}
+.flip.turned .inner{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border:3px solid var(--ink);border-radius:6px;padding:26px;display:flex;flex-direction:column;justify-content:center;text-align:left}
+.face.front{background:var(--white)}
+.face.front .term{font-family:var(--display);font-size:clamp(30px,5vw,44px);color:var(--maroon);line-height:1.05}
+.face.front .who{font-family:var(--cond);font-size:18px;color:var(--muted);margin-top:10px}
+.face.back{background:var(--oxblood);color:var(--white);transform:rotateY(180deg)}
+.face.back .def{font-size:21px;font-weight:600}
+.face.back .ex{margin-top:12px;color:var(--sand);font-size:17px}
+.hint{font-family:var(--cond);color:var(--muted);font-size:16px;margin-top:8px}
+
+/* Results */
+.result{text-align:center;padding:26px}
+.result .big{font-family:var(--display);font-size:56px;color:var(--maroon);line-height:1;margin:6px 0}
+.result .stars svg{width:44px;height:44px}
+.result p{max-width:30em;margin:12px auto}
+.result .actions{justify-content:center}
+
+/* Certificate */
+.cert{display:none;margin:0 0 30px;border:6px double var(--maroon);background:var(--white);padding:28px;text-align:center}
+.cert.show{display:block}
+.cert h2{font-family:var(--display);font-weight:400;color:var(--maroon);font-size:clamp(30px,5vw,46px);margin:6px 0}
+.cert input{font:inherit;font-size:22px;border:0;border-bottom:2px solid var(--ink);text-align:center;padding:4px;width:min(360px,90%);background:transparent}
+.cert .nm{font-family:var(--display);font-size:30px;color:var(--ink);min-height:1.2em}
+.cert .seal{font-family:var(--cond);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-size:15px}
+.locked{color:var(--muted);font-family:var(--cond);font-size:18px}
+footer{color:var(--muted);font-size:15px;padding:0 0 30px}
+
+@media (max-width:760px){
+  .events{grid-template-columns:1fr}
+  .hero .wrap{grid-template-columns:1fr}
+  .hero .press{width:140px;justify-self:end;margin-top:-20px}
+  .slots{grid-template-columns:repeat(2,1fr)}
+  .choices{grid-template-columns:1fr}
+  .sched .choices{grid-template-columns:repeat(2,1fr)}
+  .pens{grid-template-columns:1fr}
+  .card{padding:16px}
+  .scenario{font-size:19px}
+}
+body.ingame .hero{padding-top:calc(14px + env(safe-area-inset-top,0px))}
+body.ingame .hero h1{font-size:clamp(30px,5vw,40px);margin:8px 0 14px}
+body.ingame .hero p, body.ingame .hero .press{display:none}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important} }
+@media print{
+  body *{visibility:hidden}
+  .cert,.cert *{visibility:visible}
+  .cert{position:absolute;left:0;top:0;width:100%}
+  .cert .noprint{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="brandline">
+        <svg class="mark" viewBox="0 0 24 24" aria-hidden="true"><path fill="#edd2bb" d="M12 1.6l2.95 6.4 7 .82-5.2 4.78 1.42 6.9L12 17.2l-6.17 3.3 1.42-6.9L2.05 8.82l7-.82z"/></svg>
+        Madison County Cowboys &middot; Journalism 1
+      </div>
+      <h1>The Style Corral</h1>
+      <p>Chapter 11 review. Ride all five events, earn up to three stars in each, and claim your Top Hand certificate.</p>
+    </div>
+    <svg class="press" viewBox="0 0 220 150" aria-hidden="true">
+      <g fill="none" stroke="#edd2bb" stroke-width="4" stroke-linejoin="round">
+        <rect x="18" y="26" width="150" height="104" rx="4"/>
+        <path d="M168 48h30v72a10 10 0 0 1-10 10h-20"/>
+        <rect x="34" y="42" width="60" height="34"/>
+        <path d="M106 44h46M106 56h46M106 68h46M34 92h118M34 104h118M34 116h78"/>
+      </g>
+    </svg>
+  </div>
+</header>
+<div class="rope"></div>
+
+<main class="wrap">
+  <section class="home" id="home">
+    <div class="board">
+      <span class="rank" id="rank">Greenhorn</span>
+      <span>Your stars: <strong id="tally">0</strong> of 12</span>
+      <button class="reset" id="reset">Start over</button>
+    </div>
+    <div class="events" id="events"></div>
+    <div class="cert" id="cert">
+      <div class="seal">Madison County High School</div>
+      <h2>Top Hand</h2>
+      <p style="margin:.2rem 0">This certifies that</p>
+      <div class="nm" id="certName"></div>
+      <input id="nameInput" class="noprint" placeholder="Type your name" aria-label="Your name">
+      <p style="margin:.4rem 0 0">rode every event of the Chapter 11 Style Corral.</p>
+      <div class="actions noprint" style="justify-content:center">
+        <button class="btn" id="printBtn">Print certificate</button>
+      </div>
+    </div>
+    <p class="locked" id="lockMsg">Earn all 12 stars to claim your certificate.</p>
+  </section>
+
+  <section class="panel" id="ev1">
+    <div class="topbar"><button class="back" data-home>&larr; Back to events</button></div>
+    <h2>Trail Guide</h2>
+    <p class="how">Tap the card to flip it. Say the definition out loud before you flip. No score &mdash; warm up here first.</p>
+    <button class="flip" id="flip"><div class="inner">
+      <div class="face front"><div class="term" id="cTerm"></div><div class="who" id="cWho"></div></div>
+      <div class="face back"><div class="def" id="cDef"></div><div class="ex" id="cPg"></div></div>
+    </div></button>
+    <div class="actions">
+      <button class="btn alt" id="cPrev">Previous</button>
+      <button class="btn" id="cNext">Next card</button>
+      <span class="progress" id="cCount"></span>
+    </div>
+  </section>
+
+  <section class="panel" id="ev2">
+    <div class="topbar"><button class="back" data-home>&larr; Back to events</button><span class="progress" id="p2"></span></div>
+    <h2>Style Showdown</h2>
+    <p class="how">Pick the form that follows AP style. Twelve draws, one shot each.</p>
+    <div id="showBox"></div>
+  </section>
+
+  <section class="panel" id="ev3">
+    <div class="topbar"><button class="back" data-home>&larr; Back to events</button><span class="progress" id="p3"></span></div>
+    <h2>Corral It</h2>
+    <p class="how">Every sentence breaks one AP style rule. Decide which rule, then tap the pen.</p>
+    <div id="corralBox"></div>
+  </section>
+
+  <section class="panel" id="ev4">
+    <div class="topbar"><button class="back" data-home>&larr; Back to events</button><span class="progress" id="p4"></span></div>
+    <h2>Brand the Brands</h2>
+    <p class="how">A trademark gets a capital letter and never stands for a whole class of products. A generic word does not. Build a streak.</p>
+    <div id="brandBox"></div>
+  </section>
+
+  <section class="panel" id="ev5">
+    <div class="topbar"><button class="back" data-home>&larr; Back to events</button><span class="progress" id="p5"></span></div>
+    <h2>Quick Draw</h2>
+    <p class="how">Ten questions straight from the chapter. Pick the best answer. One shot each.</p>
+    <div id="quickBox"></div>
+  </section>
+
+  <footer>Journalism 1 &middot; Madison County High School &middot; Go Cowboys!<br>
+  Page numbers refer to Stovall, Chapter 11. Stars are saved only in this browser.</footer>
+</main>
+
+<script>
+(function(){
+  var CARDS=[["Style","Not literary style.","The rules of usage and the discipline the writer imposes on the writing.",195],["AP Stylebook","The chief arbiter.","The Associated Press Stylebook and Libel Manual sets style rules for print and web journalism.",195],["Local stylebook","The house rules.","A publication that supplements the AP Stylebook and lays down the rules for local references.",195],["One spelling","No alternates.","According to the AP Stylebook there is one and only one way to spell a word. Variants are incorrect.",195],["Impersonal reporter","Why style matters.","Following style rules is one way a journalist maintains this aura. Reporters stay invisible in their writing.",195],["Two types of style","How style is divided.","Professional conventions, learned through training and on the job, and rules of usage, collected in stylebooks.",196],["Editors","The governors of style.","Their job is to see that style rules are consistently and reasonably applied.",196],["Capitalization","Less is more.","Avoid unnecessary capitals: uppercase is harder to read and makes a sentence look uninviting. Main and Market streets.",197],["Numerals","The basic rule.","Spell out whole numbers below 10; use figures for 10 and above. Do not begin a sentence with a figure.",197],["Ages","Always figures.","Use numerals always: a 2-month-old baby; the girl, 6, was rescued.",198],["Comprise","Contain, not make up.","The region comprises five states. Never \"five states comprise the region.\"",197],["Hopefully","In a hopeful manner.","It does not mean \"it is hoped,\" \"we hope,\" \"maybe,\" or \"perhaps.\"",197],["Trademarks","Capitalize them.","Never use a trademark for a group of products with different manufacturers. A company can lose a trademark that slips into common usage.",198],["Inverted pyramid","What it means to an editor.","Facts run in order of importance, and the story can be cut from the end without losing essential facts or coherence.",199],["Balance","More than two sides.","Understanding the relative importance of events and not overplaying or underplaying that importance.",200],["Source ladder","Who carries weight.","Top officials on the top rung, managers and technicians in the middle, consumers and citizens at the bottom.",201]], SHOW=[["The kickoff is set for 11:45 ____",["a.m.","AM","A.M.","am"],0,"Lowercase with periods."],["He lives at 127 Elm ____",["St.","Street","Str.","street"],0,"Abbreviate with a specific address number."],["She walked to the corner of Main and Market ____",["streets","Streets","St.","Sts."],0,"Lowercase when two streets share the word."],["____ Hodges spoke for an hour.",["Gov.","Governor","governor","Gov"],0,"Abbreviate the title before a name."],["The ____ left the hearing early.",["governor","Governor","Gov.","Gov"],0,"Standing alone, spell it out and lowercase it."],["The district hired ____ new teachers.",["seven","7","Seven","VII"],0,"Spell out whole numbers below 10."],["The district hired ____ new teachers.",["14","fourteen","Fourteen","14th"],0,"Use figures for 10 and above."],["The baby is ____ old.",["2 months","two months","Two months","II months"],0,"Ages always take numerals."],["The exhibit opens in ____",["February 1978","February, 1978","Feb. 1978","Feb., 1978"],0,"Month and year together take no comma."],["The newsroom hired a new ____",["adviser","advisor","advisour","advizer"],0,"One spelling only in journalism."],["The judge used her best ____",["judgment","judgement","judgemant","judgmant"],0,"No e after the g."],["The region ____ five states.",["comprises","is comprised of","comprise of","is composed by"],0,"Comprise means contain."]], PENS=[["Capitalization","Too many capitals"],["Abbreviation","Wrong short form"],["Numerals","Figures vs. words"],["Spelling","Only one is correct"]], CORRAL=[["Karl Teague, Dean of the College of Arts and Sciences, will speak.",0],["The Governor vetoed the bill Tuesday.",0],["She lives at 412 West Main Street.",1],["Doctor Reyes performed the surgery.",1],["Over fifty thousand people attended the game.",2],["The team lost 3 of its first four games.",2],["The travelling exhibit opens next month.",3],["The newspaper hired a new advisor.",3]],
+      TYPES=[["Trademark","Capitalize it"],["Generic","Lowercase is fine"]], BRANDGEN=[["Styrofoam",0],["Frisbee",0],["Kleenex",0],["Xerox",0],["Velcro",0],["Jell-O",0],["Popsicle",0],["Q-tips",0],["tissue",1],["notebook",1],["copier",1],["sandwich",1],["flying disc",1],["plastic foam",1]], QUICK=[{"q":"According to the chapter, style in journalism refers to —","pg":195,"opts":[{"t":"The rules of usage and the discipline the writer imposes on the writing","c":true},{"t":"The way a writer forms phrases and sentences, as in literary style","c":false},{"t":"The personal voice that makes one reporter sound different from another","c":false},{"t":"The layout and typeface choices a publication makes","c":false}]},{"q":"Which publication does the chapter call the chief arbiter of style rules in print and web journalism?","pg":195,"opts":[{"t":"The Associated Press Stylebook and Libel Manual","c":true},{"t":"The Chicago Manual of Style","c":false},{"t":"The New York Times Manual of Style and Usage","c":false},{"t":"The Elements of Style","c":false}]},{"q":"What is a local stylebook?","pg":195,"opts":[{"t":"A publication that supplements the AP Stylebook and sets the rules for local references","c":true},{"t":"A regional edition of the AP Stylebook sold by state press associations","c":false},{"t":"A dictionary kept at the copy desk for settling spelling disputes","c":false},{"t":"A list of every story a paper has published about its own town","c":false}]},{"q":"According to the AP Stylebook, how many correct ways are there to spell a word?","pg":195,"opts":[{"t":"One and only one","c":true},{"t":"Two, if both appear in a dictionary","c":false},{"t":"As many as the writer can defend","c":false},{"t":"It depends on the publication","c":false}]},{"q":"Adherence to style rules is one way a journalist maintains the aura of —","pg":195,"opts":[{"t":"The impersonal reporter","c":true},{"t":"The expert witness","c":false},{"t":"The watchdog","c":false},{"t":"The eyewitness","c":false}]},{"q":"A publication adopts a style in order to —","pg":196,"opts":[{"t":"Promote consistency among its writers and reduce confusion among its readers","c":true},{"t":"Make its writing sound more formal than its competitors","c":false},{"t":"Shorten stories so more of them fit on a page","c":false},{"t":"Give editors a reason to rewrite reporters’ copy","c":false}]},{"q":"The chapter divides journalistic style into which two types?","pg":196,"opts":[{"t":"Professional conventions and rules of usage","c":true},{"t":"Grammar rules and spelling rules","c":false},{"t":"Print style and broadcast style","c":false},{"t":"National style and local style","c":false}]},{"q":"Many young writers think consistent style represses their creativity. How does the chapter answer that?","pg":196,"opts":[{"t":"Style is not a rigid set of rules to restrict the writer; it imposes a discipline that runs through all a journalist’s work","c":true},{"t":"Creativity matters more than consistency, so exceptions should be common","c":false},{"t":"Style rules apply only to news stories, never to features","c":false},{"t":"Style rules exist mainly to make the editor’s job easier","c":false}]},{"q":"According to the chapter, who are the governors of the style of a publication?","pg":196,"opts":[{"t":"Editors","c":true},{"t":"Reporters","c":false},{"t":"Publishers","c":false},{"t":"The wire services","c":false}]},{"q":"When should exceptions to a publication’s style be allowed?","pg":196,"opts":[{"t":"For specific and logical reasons, never at the whim of the writer","c":true},{"t":"Whenever the writer believes the rule hurts the sentence","c":false},{"t":"Only in stories longer than 500 words","c":false},{"t":"Never, under any circumstances","c":false}]},{"q":"Why does the chapter say unnecessary capitalization should be avoided?","pg":197,"opts":[{"t":"Uppercase letters are harder to read and make the sentence look uninviting","c":true},{"t":"Capital letters take up more space on the page","c":false},{"t":"Readers assume capitalized words are more important","c":false},{"t":"Wire services charge more for capital letters","c":false}]},{"q":"Which is correct AP style?","pg":197,"opts":[{"t":"Main and Market streets","c":true},{"t":"Main and Market Streets","c":false},{"t":"main and market streets","c":false},{"t":"Main and market Streets","c":false}]},{"q":"Which is correct AP style for a title used after a name?","pg":197,"opts":[{"t":"John Smith, mayor of Jonesville","c":true},{"t":"John Smith, Mayor of Jonesville","c":false},{"t":"john smith, Mayor of Jonesville","c":false},{"t":"John Smith, Mayor Of Jonesville","c":false}]},{"q":"When one of the abbreviated titles such as Gov. or Sen. stands alone without a name, AP style requires that it be —","pg":197,"opts":[{"t":"Spelled out and lowercased","c":true},{"t":"Abbreviated and capitalized","c":false},{"t":"Spelled out and capitalized","c":false},{"t":"Dropped from the sentence","c":false}]},{"q":"What is the AP rule for numerals?","pg":197,"opts":[{"t":"Spell out whole numbers below 10 and use figures for 10 and above","c":true},{"t":"Spell out whole numbers below 100 and use figures above that","c":false},{"t":"Always use figures, in every case","c":false},{"t":"Always spell numbers out in the first paragraph","c":false}]},{"q":"According to AP style, if a sentence must begin with a number, the writer should —","pg":197,"opts":[{"t":"Spell the number out","c":true},{"t":"Use figures anyway","c":false},{"t":"Move the number to the end of the sentence","c":false},{"t":"Write the number as a fraction","c":false}]},{"q":"Which spelling does the chapter give as correct in journalism?","pg":197,"opts":[{"t":"Adviser","c":true},{"t":"Advisor","c":false},{"t":"Advizer","c":false},{"t":"Advisour","c":false}]},{"q":"Which spelling does the chapter give as correct in journalism?","pg":197,"opts":[{"t":"Percent","c":true},{"t":"Per cent","c":false},{"t":"Per-cent","c":false},{"t":"Percentage sign","c":false}]},{"q":"Which spelling does the chapter give as correct in journalism?","pg":197,"opts":[{"t":"Judgment","c":true},{"t":"Judgement","c":false},{"t":"Judgemant","c":false},{"t":"Judgmant","c":false}]},{"q":"According to the chapter, the word \"comprise\" means —","pg":197,"opts":[{"t":"Contain, as in \"The region comprises five states\"","c":true},{"t":"Make up, as in \"Five states comprise the region\"","c":false},{"t":"Divide, as in \"The region comprises into five states\"","c":false},{"t":"Resemble, as in \"The region comprises a nation\"","c":false}]},{"q":"According to the chapter, the word \"hopefully\" means —","pg":197,"opts":[{"t":"In a hopeful manner","c":true},{"t":"It is hoped","c":false},{"t":"We hope","c":false},{"t":"Perhaps","c":false}]},{"q":"What is the AP rule for ages?","pg":198,"opts":[{"t":"Use numerals always, as in a 2-month-old baby","c":true},{"t":"Spell out ages below 10, as in a two-month-old baby","c":false},{"t":"Use numerals only for people over 18","c":false},{"t":"Avoid giving ages in news stories","c":false}]},{"q":"Which is correct AP style for a date?","pg":198,"opts":[{"t":"In February 1978, with no comma","c":true},{"t":"In February, 1978, with a comma","c":false},{"t":"In Feb. 1978, abbreviated with no comma","c":false},{"t":"In 2/1978","c":false}]},{"q":"The chapter says trademarked names should always be —","pg":198,"opts":[{"t":"Capitalized, and never used to refer to a group of products with different manufacturers","c":true},{"t":"Lowercased once the public uses them as ordinary words","c":false},{"t":"Avoided entirely in news writing","c":false},{"t":"Followed by the trademark symbol","c":false}]},{"q":"Why do companies object when journalists use their brand names generically?","pg":198,"opts":[{"t":"If the word slips into common usage, the company can lose the trademark and no longer control how the word is used","c":true},{"t":"They must pay a fee each time the name appears in print","c":false},{"t":"Generic use counts as free advertising for their competitors","c":false},{"t":"The AP charges them a penalty for each misuse","c":false}]},{"q":"Which of these is on the chapter’s list of trademarks that must be capitalized?","pg":198,"opts":[{"t":"Styrofoam","c":true},{"t":"Cardboard","c":false},{"t":"Notebook","c":false},{"t":"Sandpaper","c":false}]},{"q":"For the editor, the inverted pyramid structure means which two things?","pg":199,"opts":[{"t":"Facts appear in order of importance, and the story can be cut from the end without losing essential facts or coherence","c":true},{"t":"The story must be exactly 30 words long, and the lead must name a source","c":false},{"t":"Quotations go at the top, and background goes at the bottom","c":false},{"t":"The story runs in chronological order, and the ending delivers the point","c":false}]},{"q":"According to the chapter, the disaster story must always tell early in the story —","pg":200,"opts":[{"t":"Whether anyone was killed or injured","c":true},{"t":"How much property damage occurred","c":false},{"t":"Who first reported the event","c":false},{"t":"What the weather was at the time","c":false}]},{"q":"The chapter uses the obituary as an example of what?","pg":200,"opts":[{"t":"The routinization of stories, in which papers develop standard forms for recurring story types","c":true},{"t":"A story that should never follow a standard form","c":false},{"t":"A story in which the reporter may use first person","c":false},{"t":"The one story type that does not require attribution","c":false}]},{"q":"If a news source makes an accusation against another person, what does fairness require?","pg":200,"opts":[{"t":"That person should be given a chance to answer in the same story","c":true},{"t":"The accusation should be left out until it is proved","c":false},{"t":"The reporter should decide which side is telling the truth","c":false},{"t":"The story should run only after a court rules","c":false}]},{"q":"In the larger sense the chapter describes, balance means that journalists should —","pg":200,"opts":[{"t":"Understand the relative importance of events and not overplay or underplay that importance","c":true},{"t":"Give every story in the paper the same amount of space","c":false},{"t":"Quote an equal number of sources on each side of every story","c":false},{"t":"Alternate good news and bad news on the front page","c":false}]},{"q":"The concept of the impersonal reporter requires that journalists avoid —","pg":200,"opts":[{"t":"First-person and second-person pronouns outside of direct quotes","c":true},{"t":"All direct quotations longer than one sentence","c":false},{"t":"Any mention of the reporter’s own newspaper","c":false},{"t":"Interviewing people they already know","c":false}]},{"q":"What distinguishes an \"official\" source from an \"unofficial\" one?","pg":201,"opts":[{"t":"Official sources are thought to have expertise on the subject, not merely opinions about it","c":true},{"t":"Official sources work for the government and unofficial sources do not","c":false},{"t":"Official sources agree to be named and unofficial sources do not","c":false},{"t":"Official sources are quoted directly and unofficial sources are paraphrased","c":false}]},{"q":"On the \"source ladder\" editors refer to, who sits on the top rung?","pg":201,"opts":[{"t":"Top officials, such as a university president","c":true},{"t":"Consumers and interested citizens","c":false},{"t":"Managers and technicians","c":false},{"t":"Other reporters","c":false}]},{"q":"What mistake does the chapter say young journalists often make with sources?","pg":201,"opts":[{"t":"Relying too heavily on the convenient source, interviewing people who merely have opinions rather than those who can provide information","c":true},{"t":"Interviewing too many government officials","c":false},{"t":"Refusing to quote anyone who is not famous","c":false},{"t":"Using too many sources in a single story","c":false}]},{"q":"When a person’s exact words do not accurately express the meaning they intended, what does the chapter recommend?","pg":201,"opts":[{"t":"Paraphrase them and remove the quotation marks","c":true},{"t":"Print the words exactly as spoken anyway","c":false},{"t":"Rewrite the words and leave the quotation marks in place","c":false},{"t":"Leave the statement out of the story entirely","c":false}]},{"q":"What does the chapter say a journalist usually does with bad grammar inside a direct quotation in a news story?","pg":202,"opts":[{"t":"Cleans it up, because quoting it can make the person appear foolish and distract from the meaning","c":true},{"t":"Prints it exactly as spoken, with the word \"sic\" added","c":false},{"t":"Replaces the quote with a photograph of the speaker","c":false},{"t":"Prints it exactly as spoken, since accuracy outranks everything","c":false}]},{"q":"The chapter says \"A student should always do his homework\" should be rewritten. Which revision does it give?","pg":202,"opts":[{"t":"Students should always do their homework","c":true},{"t":"A student should always do his or her homework, every time","c":false},{"t":"A student should always do their homework","c":false},{"t":"Each student should always do his homework","c":false}]},{"q":"Which pair shows the gender-neutral titles the chapter recommends?","pg":203,"opts":[{"t":"Firefighter and mail carrier","c":true},{"t":"Fireman and mailman","c":false},{"t":"Fire boss and postman","c":false},{"t":"Fire chief and letterman","c":false}]},{"q":"The chapter offers a test for deciding whether a racial description belongs in a story. What is it?","pg":204,"opts":[{"t":"Ask whether the detail would matter if the person were of a different race","c":true},{"t":"Ask whether the source agreed to have it printed","c":false},{"t":"Ask whether another paper has already published it","c":false},{"t":"Ask whether it makes the story longer than the space allows","c":false}]},{"q":"Why does the chapter object to the phrase \"reformed alcoholic\"?","pg":204,"opts":[{"t":"\"Reformed\" implies the person did something wrong and that the problem is now solved","c":true},{"t":"It is too long for most headlines","c":false},{"t":"It is a trademarked phrase","c":false},{"t":"It is acceptable only in feature stories","c":false}]},{"q":"Instead of saying a person has a \"birth defect,\" the chapter suggests writing —","pg":204,"opts":[{"t":"That the person was born with a hearing loss, or whatever the specific condition is","c":true},{"t":"That the person is handicapped","c":false},{"t":"That the person has a disability of some kind","c":false},{"t":"Nothing at all about the condition","c":false}]},{"q":"According to the chapter, what makes the general and often offending term unnecessary?","pg":204,"opts":[{"t":"Being specific","c":true},{"t":"Being brief","c":false},{"t":"Quoting a source","c":false},{"t":"Using the passive voice","c":false}]}];
+
+  var EVENTS=[
+    {id:'ev1',n:1,title:'Trail Guide: flashcards',blurb:'Flip through every key term from the chapter. Warm up here first. No score.',scored:false,wide:true},
+    {id:'ev2',n:2,title:'Style Showdown',blurb:'Pick the form that follows AP style: times, titles, numbers, and spellings.',scored:true},
+    {id:'ev3',n:3,title:'Corral It',blurb:'Pen each sentence by the style rule it breaks.',scored:true},
+    {id:'ev4',n:4,title:'Brand the Brands',blurb:'Trademark or generic? Capitalize only what the stylebook protects.',scored:true},
+    {id:'ev5',n:5,title:'Quick Draw',blurb:'Ten fast questions on style, conventions, and language sensitivity.',scored:true}
+  ];
+  var RANKS=[[0,'Greenhorn'],[3,'Wrangler'],[6,'Bronc rider'],[9,'Trail boss'],[12,'Top hand']];
+
+  var stars={ev2:0,ev3:0,ev4:0,ev5:0};
+  try{var raw=localStorage.getItem('ch11corral');
+    if(raw){var s=JSON.parse(raw);for(var k in stars){if(typeof s[k]==='number')stars[k]=s[k];}}}catch(e){}
+  function save(){try{localStorage.setItem('ch11corral',JSON.stringify(stars));}catch(e){}}
+
+  var STAR='<path d="M12 1.6l2.95 6.4 7 .82-5.2 4.78 1.42 6.9L12 17.2l-6.17 3.3 1.42-6.9L2.05 8.82l7-.82z"/>';
+  function starStr(n){var o='<span class="stars">';
+    for(var i=0;i<3;i++){o+='<svg viewBox="0 0 24 24" class="'+(i<n?'on':'off')+'"><g class="'+(i<n?'on':'off')+'">'+STAR+'</g></svg>';}
+    return o+'</span>';}
+  function award(p){return p>=100?3:p>=80?2:p>=60?1:0;}
+
+  function paintHub(){
+    var total=stars.ev2+stars.ev3+stars.ev4+stars.ev5;
+    document.getElementById('tally').textContent=total;
+    var r=RANKS[0][1];for(var i=0;i<RANKS.length;i++){if(total>=RANKS[i][0])r=RANKS[i][1];}
+    document.getElementById('rank').textContent=r;
+    var box=document.getElementById('events');box.innerHTML='';
+    EVENTS.forEach(function(ev){
+      var b=document.createElement('button');
+      b.className='event'+(ev.wide?' wide':'');
+      b.innerHTML='<span class="num">'+ev.n+'</span><h2>'+ev.title+'</h2><p>'+ev.blurb+'</p>'+(ev.scored?starStr(stars[ev.id]):'');
+      b.addEventListener('click',function(){go(ev.id);});
+      box.appendChild(b);});
+    var done=total>=12;
+    document.getElementById('cert').classList.toggle('show',done);
+    document.getElementById('lockMsg').style.display=done?'none':'block';
+    document.getElementById('lockMsg').textContent='Earn all 12 stars to claim your certificate. You have '+total+'.';
+  }
+
+  var screens=['home','ev1','ev2','ev3','ev4','ev5'];
+  function go(id){
+    document.getElementById('home').classList.toggle('hidden',id!=='home');
+    screens.slice(1).forEach(function(s){document.getElementById(s).classList.toggle('active',s===id);});
+    document.body.classList.toggle('ingame',id!=='home');
+    window.scrollTo(0,0);
+    if(id==='ev2')startShow();
+    if(id==='ev3')startCorral();
+    if(id==='ev4')startBrand();
+    if(id==='ev5')startQuick();
+    if(id==='home')paintHub();
+  }
+  [].forEach.call(document.querySelectorAll('[data-home]'),function(b){b.addEventListener('click',function(){go('home');});});
+  document.getElementById('reset').addEventListener('click',function(){stars={ev2:0,ev3:0,ev4:0,ev5:0};save();paintHub();});
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  var nameInput=document.getElementById('nameInput');
+  try{var nm=localStorage.getItem('ch11name');if(nm){nameInput.value=nm;document.getElementById('certName').textContent=nm;}}catch(e){}
+  nameInput.addEventListener('input',function(e){
+    document.getElementById('certName').textContent=e.target.value;
+    try{localStorage.setItem('ch11name',e.target.value);}catch(err){}});
+
+  function mix(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+
+  function finish(evId,right,total,box,restart,prog){
+    var pct=Math.round(right/total*100),got=award(pct);
+    if(got>stars[evId]){stars[evId]=got;save();}
+    if(prog)document.getElementById(prog).textContent='';
+    box.innerHTML='<div class="card result">'+starStr(got)+
+      '<div class="big">'+right+' / '+total+'</div>'+
+      '<p>'+pct+'% &middot; your best for this event: '+stars[evId]+' of 3 stars</p>'+
+      '<div class="actions"><button class="btn alt" data-home2>Back to events</button>'+
+      '<button class="btn" id="again">Ride again</button></div></div>';
+    document.getElementById('again').addEventListener('click',restart);
+    box.querySelector('[data-home2]').addEventListener('click',function(){go('home');});
+  }
+
+  /* EVENT 1 */
+  var ci=0,flip=document.getElementById('flip');
+  function drawCard(){var c=CARDS[ci];
+    document.getElementById('cTerm').textContent=c[0];
+    document.getElementById('cWho').textContent=c[1];
+    document.getElementById('cDef').textContent=c[2];
+    document.getElementById('cPg').textContent='page '+c[3];
+    document.getElementById('cCount').innerHTML='Card <b>'+(ci+1)+'</b> of '+CARDS.length;
+    flip.classList.remove('turned');}
+  flip.addEventListener('click',function(){flip.classList.toggle('turned');});
+  document.getElementById('cNext').addEventListener('click',function(){ci=(ci+1)%CARDS.length;drawCard();});
+  document.getElementById('cPrev').addEventListener('click',function(){ci=(ci-1+CARDS.length)%CARDS.length;drawCard();});
+  drawCard();
+
+  /* EVENT 2 — Style Showdown */
+  var sO,sAt,sRight;
+  function startShow(){sO=mix(SHOW.map(function(_,i){return i;}));sAt=0;sRight=0;renderShow();}
+  function renderShow(){
+    var box=document.getElementById('showBox');
+    document.getElementById('p2').innerHTML='Draw <b>'+Math.min(sAt+1,SHOW.length)+'</b> of '+SHOW.length;
+    if(sAt>=sO.length)return finish('ev2',sRight,SHOW.length,box,startShow,'p2');
+    var it=SHOW[sO[sAt]];
+    var opts=mix(it[1].map(function(t,i){return {t:t,c:i===it[2]};}));
+    box.innerHTML='<div class="card"><p class="scenario">'+it[0]+'</p>'+
+      '<div class="choices" id="sopts"></div><div class="feedback" id="fb2"></div>'+
+      '<div class="actions" id="row2" style="display:none"><button class="btn" id="next2">Next draw</button></div></div>';
+    var wrap=document.getElementById('sopts');
+    opts.forEach(function(o){
+      var b=document.createElement('button');
+      b.className='choice';b.textContent=o.t;
+      b.addEventListener('click',function(){
+        [].forEach.call(wrap.children,function(x,j){x.disabled=true;if(opts[j].c)x.classList.add('right');});
+        var f=document.getElementById('fb2');
+        if(o.c){sRight++;f.className='feedback show ok';f.innerHTML='<b>Correct.</b>'+it[3];}
+        else{b.classList.add('wrong');f.className='feedback show no';f.innerHTML='<b>Not quite.</b>'+it[3];}
+        document.getElementById('row2').style.display='flex';});
+      wrap.appendChild(b);});
+    document.getElementById('next2').addEventListener('click',function(){sAt++;renderShow();});
+  }
+
+  /* EVENT 3 — Corral It */
+  var cO,cAt,cRight;
+  function startCorral(){cO=mix(CORRAL.map(function(_,i){return i;}));cAt=0;cRight=0;renderCorral();}
+  function renderCorral(){
+    var box=document.getElementById('corralBox');
+    document.getElementById('p3').innerHTML='Sentence <b>'+Math.min(cAt+1,CORRAL.length)+'</b> of '+CORRAL.length;
+    if(cAt>=cO.length)return finish('ev3',cRight,CORRAL.length,box,startCorral,'p3');
+    var it=CORRAL[cO[cAt]];
+    box.innerHTML='<div class="card"><p class="scenario">'+it[0]+'</p>'+
+      '<div class="pens" id="pens"></div><div class="feedback" id="fb3"></div>'+
+      '<div class="actions" id="row3" style="display:none"><button class="btn" id="next3">Next sentence</button></div></div>';
+    var wrap=document.getElementById('pens');
+    PENS.forEach(function(p,i){
+      var b=document.createElement('button');
+      b.className='pen';b.innerHTML=p[0]+'<span>'+p[1]+'</span>';
+      b.addEventListener('click',function(){
+        [].forEach.call(wrap.children,function(x,j){x.disabled=true;if(j===it[1])x.classList.add('right');});
+        var f=document.getElementById('fb3');
+        if(i===it[1]){cRight++;f.className='feedback show ok';f.innerHTML='<b>Penned right.</b>';}
+        else{b.classList.add('wrong');f.className='feedback show no';
+          f.innerHTML='<b>Not quite.</b>That one belongs in \u201c'+PENS[it[1]][0]+'.\u201d';}
+        document.getElementById('row3').style.display='flex';});
+      wrap.appendChild(b);});
+    document.getElementById('next3').addEventListener('click',function(){cAt++;renderCorral();});
+  }
+
+  /* EVENT 4 — Brand the Brands */
+  var nO,nAt,nRight,nStreak,nBest;
+  function startBrand(){nO=mix(BRANDGEN.map(function(_,i){return i;})).slice(0,10);nAt=0;nRight=0;nStreak=0;nBest=0;renderBrand();}
+  function renderBrand(){
+    var box=document.getElementById('brandBox');
+    document.getElementById('p4').innerHTML='Word <b>'+Math.min(nAt+1,10)+'</b> of 10 &middot; streak <b>'+nStreak+'</b>'+(nBest?' (best '+nBest+')':'');
+    if(nAt>=nO.length)return finish('ev4',nRight,10,box,startBrand,'p4');
+    var it=BRANDGEN[nO[nAt]];
+    box.innerHTML='<div class="card sched"><p class="scenario" style="font-family:var(--display);font-size:2rem;color:var(--maroon)">'+it[0]+'</p>'+
+      '<div class="choices" id="types" style="grid-template-columns:repeat(2,1fr)"></div>'+
+      '<div class="feedback" id="fb4"></div>'+
+      '<div class="actions" id="row4" style="display:none"><button class="btn" id="next4">Next word</button></div></div>';
+    var wrap=document.getElementById('types');
+    TYPES.forEach(function(t,i){
+      var b=document.createElement('button');
+      b.className='choice';b.innerHTML=t[0]+'<small>'+t[1]+'</small>';
+      b.addEventListener('click',function(){
+        [].forEach.call(wrap.children,function(x,j){x.disabled=true;if(j===it[1])x.classList.add('right');});
+        var f=document.getElementById('fb4');
+        if(i===it[1]){nRight++;nStreak++;if(nStreak>nBest)nBest=nStreak;
+          f.className='feedback show ok';f.innerHTML='<b>Correct.</b>Streak '+nStreak+'.';}
+        else{b.classList.add('wrong');nStreak=0;f.className='feedback show no';
+          f.innerHTML='<b>Not quite.</b>That one is '+TYPES[it[1]][0].toLowerCase()+'. Streak back to zero.';}
+        document.getElementById('row4').style.display='flex';});
+      wrap.appendChild(b);});
+    document.getElementById('next4').addEventListener('click',function(){nAt++;renderBrand();});
+  }
+
+  /* EVENT 5 — Quick Draw */
+  var qO,qAt,qRight,QN=10;
+  function startQuick(){qO=mix(QUICK.map(function(_,i){return i;})).slice(0,QN);qAt=0;qRight=0;renderQuick();}
+  function renderQuick(){
+    var box=document.getElementById('quickBox');
+    document.getElementById('p5').innerHTML='Question <b>'+Math.min(qAt+1,QN)+'</b> of '+QN;
+    if(qAt>=qO.length)return finish('ev5',qRight,QN,box,startQuick,'p5');
+    var it=QUICK[qO[qAt]],opts=mix(it.opts);
+    box.innerHTML='<div class="card"><p class="scenario">'+it.q+'</p>'+
+      '<div class="choices" id="qopts"></div><div class="feedback" id="fb5"></div>'+
+      '<div class="actions" id="row5" style="display:none"><button class="btn" id="next5">Next question</button></div></div>';
+    var wrap=document.getElementById('qopts');
+    opts.forEach(function(o){
+      var b=document.createElement('button');
+      b.className='choice';b.textContent=o.t;
+      b.addEventListener('click',function(){
+        [].forEach.call(wrap.children,function(x,j){x.disabled=true;if(opts[j].c)x.classList.add('right');});
+        var f=document.getElementById('fb5');
+        if(o.c){qRight++;f.className='feedback show ok';f.innerHTML='<b>Correct.</b>Page '+it.pg+'.';}
+        else{b.classList.add('wrong');f.className='feedback show no';f.innerHTML='<b>Not quite.</b>The correct answer is marked. See page '+it.pg+'.';}
+        document.getElementById('row5').style.display='flex';});
+      wrap.appendChild(b);});
+    document.getElementById('next5').addEventListener('click',function(){qAt++;renderQuick();});
+  }
+
+  paintHub();
+  go('home');
+})();
+</script>
+</body>
+</html>
